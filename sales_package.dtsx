@@ -1,0 +1,908 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/31/2024 9:28:29 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-77TM42R"
+  DTS:CreatorName="DESKTOP-77TM42R\omofo"
+  DTS:DTSID="{1F103D23-5592-4606-AF4C-73F0FB527BF5}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="sales_package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{F839D532-0CDD-4794-83C0-FFC34D78E240}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-77TM42R\SQLEXPRESS01.busybee]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{83784B18-B367-4ED3-B456-F18E75990611}"
+      DTS:ObjectName="DESKTOP-77TM42R\SQLEXPRESS01.busybee">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-77TM42R\SQLEXPRESS01;Initial Catalog=busybee;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{83784B18-B367-4ED3-B456-F18E75990611}DESKTOP-77TM42R\SQLEXPRESS01.busybee;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-77TM42R\SQLEXPRESS01.ETLProject]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D2C04817-9B47-452B-B4BC-F63A9B650FE8}"
+      DTS:ObjectName="DESKTOP-77TM42R\SQLEXPRESS01.ETLProject">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-77TM42R\SQLEXPRESS01;Initial Catalog=busybee;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{D2C04817-9B47-452B-B4BC-F63A9B650FE8}DESKTOP-77TM42R\SQLEXPRESS01.ETLProject;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-77TM42R\SQLEXPRESS01.ETLProject 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B8F13739-01D4-4DBD-90D7-0A1476DB066C}"
+      DTS:ObjectName="DESKTOP-77TM42R\SQLEXPRESS01.ETLProject 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-77TM42R\SQLEXPRESS01;User ID=;Initial Catalog=ETLProject;Provider=MSOLEDBSQL.1;Persist Security Info=False;Integrated Security=SSPI;Initial File Name=;Server SPN=;Authentication=;Access Token=;Application Name=SSIS-Package-{B8F13739-01D4-4DBD-90D7-0A1476DB066C}DESKTOP-77TM42R\SQLEXPRESS01.ETLProject 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{01C562AA-C23E-4241-AD57-55AB10661FE6}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\omofo\busybee_analytics\sales.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SaleID"
+              DTS:DTSID="{8CFD4CC3-DCA4-4CAD-8BAF-9F27BB933FBE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{7086CAC5-8493-4946-8F92-8B1FABB1982C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductID"
+              DTS:DTSID="{04A893A9-B7FE-420E-9EA7-4DB4E27CFA3B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Quantity"
+              DTS:DTSID="{D202ED64-B186-42E4-8117-19B798058D50}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SaleDate"
+              DTS:DTSID="{F6720E7C-0DDD-46AC-ACC8-C42561DA21EA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{505466F1-0320-4EF9-B4B5-5FC2F4DE3696}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\omofo\busybee_analytics\products.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductID"
+              DTS:DTSID="{3AB5D799-EC5D-442B-A01B-9EC17143C683}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductName"
+              DTS:DTSID="{A9F2047E-D2C1-41E2-86F1-FA94D1EF55F4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Category"
+              DTS:DTSID="{3B56E21A-BA21-45A2-B683-EEAC6F25A195}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Price"
+              DTS:DTSID="{6FF80D04-F6C3-446C-930B-C95547871395}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 2]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{09E932BA-FFDF-4015-B2D1-4B4E9EB3A146}"
+      DTS:ObjectName="Flat File Connection Manager 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\omofo\busybee_analytics\customers.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{78964E21-77C2-42F5-BD6D-09F3EE59D176}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{EE4205F3-A232-4EFA-A665-05C081A58C9E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Address"
+              DTS:DTSID="{0AB237AC-B919-47C5-BEC6-2EAB83BF363E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{8442349A-5385-40C3-BE73-8317C02A0413}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5F32ECCE-8EFB-452A-A4E5-7C40135A99C1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D2C04817-9B47-452B-B4BC-F63A9B650FE8}"
+          SQLTask:SqlStatementSource="DELETE FROM Sales;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{05C68284-90AF-4446-AF94-6FF8932E2A1F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Inputs[Data Conversion Input].Columns[Quantity]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Quantity"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Inputs[Data Conversion Input].Columns[SaleDate]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SaleDate"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Quantity]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Quantity]"
+                      name="Conv_Quantity"
+                      precision="18"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[Quantity]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_SaleDate]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_SaleDate]"
+                      name="Conv_SaleDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="LOAD INTO Busybee DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[sales]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-77TM42R\SQLEXPRESS01.busybee]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-77TM42R\SQLEXPRESS01.busybee]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].Columns[SaleID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SaleID"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleID]" />
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="CustomerID"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[CustomerID]" />
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].Columns[ProductID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProductID"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[ProductID]" />
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].Columns[Conv_Quantity]"
+                      cachedDataType="numeric"
+                      cachedName="Conv_Quantity"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Quantity]" />
+                    <inputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].Columns[Conv_SaleDate]"
+                      cachedDataType="date"
+                      cachedName="Conv_SaleDate"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_SaleDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SaleID" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[SaleDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SaleDate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="2057"
+              name="Sales Src File"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[SaleID]"
+                      length="50"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleID]"
+                      name="SaleID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                      length="50"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[CustomerID]"
+                      name="CustomerID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[ProductID]"
+                      length="50"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[ProductID]"
+                      name="ProductID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
+                      length="50"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleDate]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[SaleDate]"
+                      length="50"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].Columns[SaleDate]"
+                      name="SaleDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[SaleID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SaleID" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[ProductID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[Quantity]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output].ExternalColumns[SaleDate]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SaleDate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB.Paths[Data Conversion Output]"
+              endId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB.Paths[Flat File Source Output]"
+              endId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D521E2B1-2588-4EA6-8E75-00E466D4F619}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="197.499989209076,82.3333327607976" />
+        <NodeLayout
+          Size="354.4,41.6"
+          Id="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB"
+          TopLeft="134.999992623926,260.866664852632" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="279.899989209076,123.933332760798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.30000341485,136.933332091834"
+              Start="0,0"
+              End="32.30000341485,129.433332091834">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.4666660459172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.4666660459172"
+                    Point2="0,68.4666660459172"
+                    Point3="4,68.4666660459172" />
+                  <mssgle:LineSegment
+                    End="28.30000341485,68.4666660459172" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.30000341485,68.4666660459172"
+                    Point2="32.30000341485,68.4666660459172"
+                    Point3="32.30000341485,72.4666660459172" />
+                  <mssgle:LineSegment
+                    End="32.30000341485,129.433332091834" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="249.6,41.6"
+          Id="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination"
+          TopLeft="188.333330195811,278.933328956498" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Sales Src File"
+          TopLeft="227.333329945803,41.666666045785" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\Data Conversion"
+          TopLeft="228.33332085775,155.133332254556" />
+        <EdgeLayout
+          Id="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB.Paths[Flat File Source Output]"
+          TopLeft="302.433325401777,83.266666045785">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.8666662087705"
+              Start="0,0"
+              End="0,64.3666662087705">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.3666662087705" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB.Paths[Data Conversion Output]"
+          TopLeft="309.733325526781,196.733332254556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,82.199996701942"
+              Start="0,0"
+              End="0,74.699996701942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74.699996701942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\LOAD CSV FILE FROM FLAT FILE SRC INTO Busybee DB\LOAD INTO Busybee DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
